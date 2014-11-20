@@ -146,9 +146,6 @@ function addLandingPage(page, root){
   root.getElementsByClassName('landing-page')[0].appendChild(a);
 }
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   chrome.runtime.getBackgroundPage(
     function(eventPage) {
