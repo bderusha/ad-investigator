@@ -2,7 +2,7 @@
 /*global chrome */
 'use strict';
 console.log('sending started message');
-chrome.extension.sendMessage('started', function() {console.log('Received callback');});
+chrome.extension.sendMessage('started2', function() {console.log('Received callback');});
 chrome.runtime.sendMessage('started', function() {console.log('Received callback');});
 setTimeout(go, 5000);
 function go() {
@@ -37,7 +37,7 @@ var patterns = [{
   'pattern': 'doubleclick\\.net\\/activity',
   'type': 'activity',
   'vendor': 'DoubleClick'
-}, 
+},
 
 {
   'name': 'DataXu ',

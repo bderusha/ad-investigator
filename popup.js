@@ -4,15 +4,25 @@ function buildDOM(creatives)  {
     var root = document.getElementById('template').cloneNode(true);
     root.id = 'container_'+i;
     root.setAttribute('data-secure', creatives[i].is_secure);
-    addFlightLink(creatives[i].flight_uid, root);
-    addCreativeLink(creatives[i].creative_uid, root);
-    addClickTrackers(creatives[i].click_trackers, root);
-    addImpressionTrackers(creatives[i].impression_trackers, root);
-    addActivityTrackers(creatives[i].activity_trackers, root);
-    addCookieMatcher(creatives[i].cookie_matchers, root);
-    addVendors(creatives[i].vendors, root);
-    addMacros(creatives[i].macros, root);
-    addCdn(creatives[i].cdn_url, root);
+    if(creatives[i].flight_uid)
+      addFlightLink(creatives[i].flight_uid, root);
+    if(creatives[i].creative_uid)
+      addCreativeLink(creatives[i].creative_uid, root);
+    if(creatives[i].click_trackers)
+      addClickTrackers(creatives[i].click_trackers, root);
+    if(creatives[i].impression_trackers)
+      addImpressionTrackers(creatives[i].impression_trackers, root);
+    if(creatives[i].activity_trackers)
+      addActivityTrackers(creatives[i].activity_trackers, root);
+    if(creatives[i].cookie_matchers)
+      addCookieMatcher(creatives[i].cookie_matchers, root);
+    if(creatives[i].vendors)
+      addVendors(creatives[i].vendors, root);
+    if(creatives[i].macros)
+      addMacros(creatives[i].macros, root);
+    if(creatives[i].cdn_url)
+      addCdn(creatives[i].cdn_url, root);
+    if(creatives[i].landing_page_url)
     addLandingPage(creatives[i].landing_page_url, root);
 
     document.getElementsByTagName('body')[0].appendChild(root);
