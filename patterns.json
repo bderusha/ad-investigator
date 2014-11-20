@@ -1,0 +1,54 @@
+[
+{
+  "pattern":"doubleclick\\.net\\/activity",
+  "name":"DoubleClick",
+  "type":"activity"
+},
+{
+  "pattern":"doubleclick\\.net\\/imp",
+  "name":"DoubleClick",
+  "type":"impression"
+},
+
+{
+  "pattern":"doubleclick\\.net\\/ad.*?/",
+  "name":"DoubleClick",
+  "type":"ad"
+},
+{
+  "pattern":"doubleclick\\.net\\/activity",
+  "name":"DoubleClick",
+  "type":"activity"
+},
+
+{
+  "pattern":"i\\.w55c\\.net\\/cl",
+  "name":"DataXu",
+  "type":"click"
+},
+{
+  "pattern":"i\\.w55c\\.net\\/ping_match",
+  "name":"DataXu",
+  "type":"cookiematch"
+},
+{
+  "pattern":"tags\\.w55c\\.net\\/rs",
+  "name":"DataXu",
+  "type":"retargetingpixel"
+},
+{
+  "pattern":"i\\.w55c\\.net\\/a.gif",
+  "name":"DataXu",
+  "type":"unknown"
+},
+{
+  "pattern":"cti\\.w55c\\.net\\/cms-2.?\\.html",
+  "name":"DataXu Cookie Match launcher",
+  "type":"cookiematch"
+},
+{
+  "pattern":"cti\\.w55c\\.net\\/rubicon-cms-2.?\\.html",
+  "name":"Rubicon Impression Cookie Match launcher",
+  "type":"cookiematch"
+}
+]
