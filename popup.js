@@ -6,29 +6,44 @@ function buildDOM(creatives)  {
     root.setAttribute('data-secure', creatives[i].is_secure);
     addFlightLink(creatives[i].flight_uid, root);
     addCreativeLink(creatives[i].creative_uid, root);
+    addClickTrackers(creatives[i].click_trackers, root);
+    addImpressionTrackers(creatives[i].impression_trackers, root);
+    addActivityTrackers(creatives[i].activity_trackers, root);
+    addCookieMatcher(creatives[i].cookie_matchers, root);
+    addVendors(creatives[i].vendors, root);
+    addMacros(creatives[i].macros, root);
+    addCdn(creatives[i].cdn_url, root);
+    addLandingPage(creatives[i].landing_page_url, root);
+
     document.getElementsByTagName('body')[0].appendChild(root);
   }
 }
 
-function addFlightLink(fuid, root){
+function createLink(url, text){
   var a = document.createElement('a');
-  if( fuid ){
-    var url = 'https://advertisers.dataxu.com/flights/'+fuid;
+  if( url ){
     a.setAttribute('href', url);
     a.setAttribute('target', '_blank');
-    a.innerHTML = url;
+    a.innerHTML = text || url;
   }
+  return a;
+}
+
+function addFlightLink(fuid, root){
+  var url;
+  if( fuid ){
+    url = 'https://advertisers.dataxu.com/flights/'+fuid;
+  }
+  var a = createLink(url);
   root.getElementsByClassName('flight')[0].appendChild(a);
 }
 
 function addCreativeLink(cuid, root){
-  var a = document.createElement('a');
+  var url;
   if( cuid ){
-    var url = 'https://advertisers.dataxu.com/search?utf8=✓&q='+cuid+'#tab_Creative';
-    a.setAttribute('href', url);
-    a.setAttribute('target', '_blank');
-    a.innerHTML = url;
+    url = 'https://advertisers.dataxu.com/search?utf8=✓&q='+cuid+'#tab_Creative';
   }
+  var a = createLink(url);
   root.getElementsByClassName('creative')[0].appendChild(a);
 }
 
@@ -36,10 +51,12 @@ function addClickTrackers(trackers, root){
   var ul = root.getElementsByClassName('click-trackers')[0].getElementsByTagName('ul')[0];
   for(var i=0; i < trackers.length; i++){
     var li = document.createElement('li');
-    li.innerHTML = trackers[i].name;
-    li.setAttribute('title', trackers[i].url);
+    li.innerHTML = trackers[i].name + " " + trackers[i].url;
+    li.setAttribute('title', trackers[i].url  + " is insecure!");
+    li.className = 'truncate';
+
     if( root.getAttribute('data-secure') == 'true' && !trackers[i].is_secure ){
-      li.className = 'warning';
+      li.className = 'warning truncate';
     }
     ul.appendChild(li);
   }
@@ -49,8 +66,25 @@ function addImpressionTrackers(trackers, root){
   var ul = root.getElementsByClassName('impression-trackers')[0].getElementsByTagName('ul')[0];
   for(var i=0; i < trackers.length; i++){
     var li = document.createElement('li');
-    li.innerHTML = trackers[i].name;
-    li.setAttribute('title', trackers[i].url);
+    li.innerHTML = trackers[i].name + " " + trackers[i].url;
+    li.setAttribute('title', trackers[i].url + " is insecure!");
+    li.className = 'truncate';
+
+    if( root.getAttribute('data-secure') == 'true' && !trackers[i].is_secure ){
+      li.className = 'warning';
+    }
+    ul.appendChild(li);
+  }
+}
+
+function addActivityTrackers(trackers, root){
+  var ul = root.getElementsByClassName('activity-trackers')[0].getElementsByTagName('ul')[0];
+  for(var i=0; i < trackers.length; i++){
+    var li = document.createElement('li');
+    li.innerHTML = trackers[i].name + " " + trackers[i].url;
+    li.setAttribute('title', trackers[i].url  + " is insecure!");
+    li.className = 'truncate';
+
     if( root.getAttribute('data-secure') == 'true' && !trackers[i].is_secure ){
       li.className = 'warning';
     }
@@ -85,6 +119,7 @@ function addMacros(macros, root){
   for(var i=0; i < macros.length; i++){
     var li = document.createElement('li');
     li.innerHTML = macros[i];
+    li.className = 'warning';
     ul.appendChild(li);
   }
 }

@@ -8,10 +8,20 @@
                 font-family: Arial, sans-serif;
                 font-size: 12px;
             }
+
+            li {
+                list-style: none;
+                height: 20px;
+                line-height: 20px;
+            }
             .container {
                 margin: 1px;
                 padding: 10px;
                 border: solid 1px
+            }
+
+            .container div {
+                margin: 5px 0;
             }
 
             #template {
@@ -22,12 +32,31 @@
                 font-size: 16px;
                 margin-right: 10px;
             }
+            .warning {
+                background:#fff8c4;
+                border:1px solid #f2c779;
+            }
+            .warning:before {
+                /*This is the utf-8 unicode character for the warning icon*/
+                content: "\26A0";
+                font-size: 16px;
+                float: left;
+                margin-left: 10px;
+            }
+
+            .truncate {
+              width: 440px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
 
 
         </style>
         <script src="popup.js"></script>
     </head>
     <body>
+        <h2>Dx Ad Agent</h2>
         <!-- Note Secure Tags vs Insecure -->
         <!-- <div class="container" id="ad0">
             <div class="flight" id='flight0'>

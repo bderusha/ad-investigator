@@ -28,7 +28,15 @@ var creatives = [
         is_secure: false
       }
     ],
-    pixel_fires:[
+    impression_trackers:[
+      {
+        name: 'Dataxu', //DFA, Pointroll, etc
+        info: "random string of stuff",
+        url: "https://i.w55c.net/a.gif",
+        is_secure: true
+      }
+    ],
+    activity_trackers:[
       {
         name: 'Dataxu', //DFA, Pointroll, etc
         info: "random string of stuff",
