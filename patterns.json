@@ -1,121 +1,143 @@
 [
-{
-  "pattern":"doubleclick\\.net\\/activity",
-  "name":"DoubleClick",
-  "type":"activity"
-},
-{
-  "pattern":"ad\\.doubleclick\\.net\\/N",
-  "name":"DoubleClick",
-  "type":"ad"
-},
-
-{
-  "pattern":"adclick\\.g\\.doubleclick\\.net\\/aclk",
-  "name":"DoubleClick",
-  "type":"click"
-},
-{
-  "pattern":"doubleclick\\.net\\/imp",
-  "name":"DoubleClick",
-  "type":"impression"
-},
-
-{
-  "pattern":"doubleclick\\.net\\/ad.*?/",
-  "name":"DoubleClick",
-  "type":"ad"
-},
-{
-  "pattern":"doubleclick\\.net\\/activity",
-  "name":"DoubleClick",
-  "type":"activity"
-},
-
-{
-  "pattern":"i\\.w55c\\.net\\/cl",
-  "name":"DataXu",
-  "type":"click"
-},
-{
-  "pattern":"i\\.w55c\\.net\\/ping_match",
-  "name":"DataXu",
-  "type":"cookiematch"
-},
-{
-  "pattern":"tags\\.w55c\\.net\\/rs",
-  "name":"DataXu",
-  "type":"retargetingpixel"
-},
-{
-  "pattern":"i\\.w55c\\.net\\/a.gif",
-  "name":"DataXu",
-  "type":"unknown"
-},
-{
-  "pattern":"cti\\.w55c\\.net\\/cms-2.?\\.html",
-  "name":"DataXu Cookie Match launcher",
-  "type":"cookiematch"
-},
-{
-  "pattern":"cti\\.w55c\\.net\\/rubicon-cms-2.?\\.html",
-  "name":"Rubicon (impression cookie matcher)",
-  "type":"cookiematch"
-},
-{
-    "pattern":"ads\\.w55c\\.net/t/d",
-    "name":"DataXu Ad Server (Display)",
-    "type":"ad"
-},
-{
-    "pattern":"ads\\.w55c\\.net\\/t\\/v",
-    "name":"DataXu Ad Server (Video)",
-    "type":"ad"
-},
-{
-    "pattern":"cdn\\.w55c\\.net\\/i\\/\\/0R",
-    "name":"DataXu Ad (insecure)",
-    "type":"ad"
-},
-{
-    "pattern":"https:\\/\\/cdn\\.w55c\\.net\\/i\\/\\/s_0R",
-    "name":"DataXu Ad (secure)",
-    "type":"ad"
-},
-{
-    "pattern":"ads\\.w55c\\.net/t/d",
-    "name":"DataXu Ad Server (Display)",
-    "type":"ad"
-},
+    {
+        "name": "DoubleClick",
+        "pattern": "doubleclick\\.net\\/activity",
+        "type": "activity"
+    },
+    {
+        "name": "DoubleClick",
+        "pattern": "ad\\.doubleclick\\.net\\/N",
+        "type": "ad"
+    },
+    {
+        "name": "DoubleClick",
+        "pattern": "adclick\\.g\\.doubleclick\\.net\\/aclk",
+        "type": "click"
+    },
+    {
+        "name": "DoubleClick",
+        "pattern": "doubleclick\\.net\\/imp",
+        "type": "impression"
+    },
+    {
+        "name": "DoubleClick",
+        "pattern": "doubleclick\\.net\\/ad.*?/",
+        "type": "ad"
+    },
+    {
+        "name": "DoubleClick",
+        "pattern": "doubleclick\\.net\\/activity",
+        "type": "activity"
+    },
+    {
+        "name": "DataXu",
+        "pattern": "i\\.w55c\\.net\\/cl",
+        "type": "click"
+    },
+    {
+        "name": "DataXu",
+        "pattern": "i\\.w55c\\.net\\/ping_match",
+        "type": "cookiematch"
+    },
+    {
+        "name": "DataXu (retargeting)",
+        "pattern": "tags\\.w55c\\.net\\/rs",
+        "type": "retarget"
+    },
+    {
+        "name": "DataXu",
+        "pattern": "i\\.w55c\\.net\\/a.gif",
+        "type": "unknown"
+    },
+    {
+        "name": "DataXu Cookie Match launcher",
+        "pattern": "cti\\.w55c\\.net\\/cms-2.?\\.html",
+        "type": "cookiematch"
+    },
+    {
+        "name": "Rubicon (impression cookie matcher)",
+        "pattern": "cti\\.w55c\\.net\\/rubicon-cms-2.?\\.html",
+        "type": "cookiematch"
+    },
+    {
+        "name": "DataXu Ad Server (Display)",
+        "pattern": "ads\\.w55c\\.net/t/d",
+        "type": "ad"
+    },
+    {
+        "name": "DataXu Ad Server (Video)",
+        "pattern": "ads\\.w55c\\.net\\/t\\/v",
+        "type": "ad"
+    },
+    {
+        "name": "DataXu Ad (insecure)",
+        "pattern": "cdn\\.w55c\\.net\\/i\\/\\/0R",
+        "type": "ad"
+    },
+    {
+        "name": "DataXu Ad (secure)",
+        "pattern": "https:\\/\\/cdn\\.w55c\\.net\\/i\\/\\/s_0R",
+        "type": "ad"
+    },
+    {
+        "name": "DataXu Ad Server (Display)",
+        "pattern": "ads\\.w55c\\.net/t/d",
+        "type": "ad"
+    },
+    
 
 
-
-{
-    "pattern":"t\\.pointroll\\.com",
-    "name":"PointRoll (impression tracker)",
-    "type":"impression"
-},
-{
-    "pattern":"clk\\.pointroll\\.com",
-    "name":"PointRoll (click tracker)",
-    "type":"click"
-},
-
-{
-    "pattern":"ad\\.pointroll\\.com",
-    "name":"PointRoll (ad server)",
-    "type":"ad"
-},
-{
-    "pattern":"[speed|spd]\\.pointroll\\.com",
-    "name":"PointRoll (performance tracker)",
-    "type":"tracker"
-},
-
-{
-    "pattern":"c\\.betrad\\.com\\/surly",
-    "name":"OBA Icon",
-    "type":"OBA"
-}
-
+    {
+        "name": "PointRoll (impression tracker)",
+        "pattern": "t\\.pointroll\\.com",
+        "type": "impression"
+    },
+    {
+        "name": "PointRoll (click tracker)",
+        "pattern": "clk\\.pointroll\\.com",
+        "type": "click"
+    },
+    {
+        "name": "PointRoll (ad server)",
+        "pattern": "ad\\.pointroll\\.com",
+        "type": "ad"
+    },
+    {
+        "name": "PointRoll (performance tracker)",
+        "pattern": "[speed|spd]\\.pointroll\\.com",
+        "type": "tracker"
+    },
+    
+    
+    
+    
+    {
+        "name": "Demdex (activity tracker)",
+        "pattern": "demdex\\.com\\/event",
+        "type": "activity"
+    },
+    {
+        "name": "Turn (activity tracker)",
+        "pattern": "r\\.turn\\.com\\/event",
+        "type": "activity"
+    },
+    {
+        "name": "AdapTV (retargeting)",
+        "pattern": "segments\\.adaptv\\.com",
+        "type": "retarget"
+    },
+    {
+        "name": "LiveRail",
+        "pattern": "ad\\d\\.liverail\\.com",
+        "type": ""
+    },
+    
+    
+    
+    
+    {
+        "name": "OBA",
+        "pattern": "surly\\.com",
+        "type": "oba"
+    }
 ]
