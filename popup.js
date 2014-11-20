@@ -8,6 +8,10 @@ function buildDOM(creatives)  {
       addFlightLink(creatives[i].flight_uid, root);
     if(creatives[i].creative_uid)
       addCreativeLink(creatives[i].creative_uid, root);
+    if(creatives[i].ad_server)
+      addAdServer(creatives[i].ad_server, root);
+    if(creatives[i].exchange)
+      addExchange(creatives[i].exchange, root);
     if(creatives[i].click_trackers)
       addClickTrackers(creatives[i].click_trackers, root);
     if(creatives[i].impression_trackers)
@@ -44,7 +48,7 @@ function addFlightLink(fuid, root){
   if( fuid ){
     url = 'https://advertisers.dataxu.com/flights/'+fuid;
   }
-  var a = createLink(url);
+  var a = createLink(url, 'Flight');
   root.getElementsByClassName('flight')[0].appendChild(a);
 }
 
@@ -53,8 +57,24 @@ function addCreativeLink(cuid, root){
   if( cuid ){
     url = 'https://advertisers.dataxu.com/search?utf8=✓&q='+cuid+'#tab_Creative';
   }
-  var a = createLink(url);
+  var a = createLink(url, "Creative");
   root.getElementsByClassName('creative')[0].appendChild(a);
+}
+
+function addExchange(exchange, root){
+  var span = document.createElement('span');
+  if( exchange ){
+    span.innerHTML = exchange;
+  }
+  root.getElementsByClassName('exchange')[0].appendChild(span);
+}
+
+function addAdServer(adServer, root){
+  var span = document.createElement('span');
+  if( adServer ){
+    span.innerHTML = adServer;
+  }
+  root.getElementsByClassName('ad-server')[0].appendChild(span);
 }
 
 function addClickTrackers(trackers, root){
