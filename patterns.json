@@ -5,6 +5,17 @@
   "type":"activity"
 },
 {
+  "pattern":"ad\\.doubleclick\\.net\\/N",
+  "name":"DoubleClick",
+  "type":"ad"
+},
+
+{
+  "pattern":"adclick\\.g\\.doubleclick\\.net\\/aclk",
+  "name":"DoubleClick",
+  "type":"click"
+},
+{
   "pattern":"doubleclick\\.net\\/imp",
   "name":"DoubleClick",
   "type":"impression"
@@ -48,7 +59,63 @@
 },
 {
   "pattern":"cti\\.w55c\\.net\\/rubicon-cms-2.?\\.html",
-  "name":"Rubicon Impression Cookie Match launcher",
+  "name":"Rubicon (impression cookie matcher)",
   "type":"cookiematch"
+},
+{
+    "pattern":"ads\\.w55c\\.net/t/d",
+    "name":"DataXu Ad Server (Display)",
+    "type":"ad"
+},
+{
+    "pattern":"ads\\.w55c\\.net\\/t\\/v",
+    "name":"DataXu Ad Server (Video)",
+    "type":"ad"
+},
+{
+    "pattern":"cdn\\.w55c\\.net\\/i\\/\\/0R",
+    "name":"DataXu Ad (insecure)",
+    "type":"ad"
+},
+{
+    "pattern":"https:\\/\\/cdn\\.w55c\\.net\\/i\\/\\/s_0R",
+    "name":"DataXu Ad (secure)",
+    "type":"ad"
+},
+{
+    "pattern":"ads\\.w55c\\.net/t/d",
+    "name":"DataXu Ad Server (Display)",
+    "type":"ad"
+},
+
+
+
+{
+    "pattern":"t\\.pointroll\\.com",
+    "name":"PointRoll (impression tracker)",
+    "type":"impression"
+},
+{
+    "pattern":"clk\\.pointroll\\.com",
+    "name":"PointRoll (click tracker)",
+    "type":"click"
+},
+
+{
+    "pattern":"ad\\.pointroll\\.com",
+    "name":"PointRoll (ad server)",
+    "type":"ad"
+},
+{
+    "pattern":"[speed|spd]\\.pointroll\\.com",
+    "name":"PointRoll (performance tracker)",
+    "type":"tracker"
+},
+
+{
+    "pattern":"c\\.betrad\\.com\\/surly",
+    "name":"OBA Icon",
+    "type":"OBA"
 }
+
 ]
