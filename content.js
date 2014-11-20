@@ -1,6 +1,8 @@
 /*jshint browser:true*/
 /*global chrome */
 'use strict';
+setTimeout(go, 5000);
+function go() {
 var patterns = [{
   'name': 'DoubleClick (activity)',
   'pattern': 'doubleclick\\.net\\/activity',
@@ -46,14 +48,20 @@ var patterns = [{
   'pattern': 'tags\\.w55c\\.net\\/rs',
   'type': 'retarget',
   'vendor': 'DataXu'
-}, {
+},{
+  'name': 'DataXu (DX4GM)',
+  'pattern': 'tags\\.w55c\\.net\\/pi\\/trs998',
+  'type': 'privateinventory',
+  'vendor': 'DataXu'
+},
+{
   'name': 'DataXu',
   'pattern': 'i\\.w55c\\.net\\/a.gif',
-  'type': 'unknown',
+  'type': 'impression',
   'vendor': 'DataXu'
 }, {
   'name': 'DataXu (cookie matcher)',
-  'pattern': 'cti\\.w55c\\.net\\/cms-2.?\\.html',
+  'pattern': 'cti\\.w55c\\.net\\/cms-2c\\.html',
   'type': 'cookiematch',
   'vendor': 'DataXu'
 }, {
@@ -205,11 +213,25 @@ for (var ii = iframes.length; ii--;) {
     }
   }
 }
+for (var ii = imgs.length; ii--;) {
+  var el = imgs[ii],
+    uri = el.getAttribute('src');
+  if (uri) {
+    console.log('Found image link: ' + uri);
+    var res = matchPattern(uri);
+    if (res) {
+      res.uri = uri;
+      console.dir(res);
+      results.push(res);
+      found = true;
+    }
+  }
+}
 
 
 for (var ii = links.length; ii--;) {
   var el = links[ii],
-    uri = el.getAttribute('src');
+    uri = el.getAttribute('href');
   if (uri) {
     console.log('Found anchor link: ' + uri);
     var res = matchPattern(uri);
@@ -225,10 +247,9 @@ var msg = {};
 msg.click_trackers = [];
 msg.impression_trackers = [];
 msg.activity_trackers = [];
-
+var filled = false;
 for (var ii = 0; ii < results.length; ii++) {
-  var info = results[ii],
-    filled = false;
+  var info = results[ii];
   console.log('Info:');
   console.dir(info);
   if (info.type == 'ad') {
@@ -275,4 +296,5 @@ if (filled) {
   chrome.extension.sendMessage(msg, function() {});
 } else {
   console.log('no ads found');
+}
 }
