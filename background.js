@@ -1,3 +1,6 @@
+/*jshint browser:true*/
+/*global chrome */
+
 // // This function is called onload in the popup code
 // function findElement(callback) {
 //     // Inject the content script into the current page
@@ -65,21 +68,21 @@ function getCreatives(callback){
 
 var creatives = [];
 
-chrome.runtime.onMessage.addListener(function(message)  {
+chrome.extension.onMessage.addListener(function(message)  {
+  console.log('Received message');
+  console.dir(message);
   if(message.type == 'ad'){
     creatives.push(message);
   }
 });
 
-// chrome.runtime.onMessage.addListener(function(message)  {
-//   if(message.type == 'link'){
-//     var opt = {
-//       type: "basic",
-//       title: "Link found!",
-//       message: message.href,
-//       iconUrl: "dx_icon_48.png"
-//     };
-
-//     chrome.notifications.create("id"+Date.now(), opt, function(){});
-//   }
-// });
+chrome.extension.onMessage.addListener(function(message)  {
+  if(message.type == 'link'){
+    var opt = {
+      type: "basic",
+      title: "Link found!",
+      message: message.href,
+      iconUrl: "dx_icon_48.png"
+    };
+  }
+});

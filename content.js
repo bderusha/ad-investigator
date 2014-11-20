@@ -1,8 +1,12 @@
 /*jshint browser:true*/
 /*global chrome */
 'use strict';
+console.log('sending started message');
+chrome.extension.sendMessage('started', function() {console.log('Received callback');});
+chrome.runtime.sendMessage('started', function() {console.log('Received callback');});
 setTimeout(go, 5000);
 function go() {
+  console.log("GOOOOO!!!!!");
 var patterns = [{
   'name': 'DoubleClick (activity)',
   'pattern': 'doubleclick\\.net\\/activity',
@@ -33,7 +37,15 @@ var patterns = [{
   'pattern': 'doubleclick\\.net\\/activity',
   'type': 'activity',
   'vendor': 'DoubleClick'
-}, {
+}, 
+
+{
+  'name': 'DataXu ',
+  'pattern': 'rtb.*?dataxu\\.net\\/x',
+  'type': 'rtb',
+  'vendor': 'DataXu'
+},
+{
   'name': 'DataXu (click tracker)',
   'pattern': 'i\\.w55c\\.net\\/cl',
   'type': 'click',
@@ -191,11 +203,11 @@ var matchPattern = function(uri) {
   return;
 };
 
-var creative_uid, flight_uid, exchange, click_trackers, pixel_fires, cookie_matchers, vendors, macros, cdn_url, landing_page_url, href;
+var creative_uid, flight_uid, click_trackers, pixel_fires, cookie_matchers, vendors, macros, cdn_url, landing_page_url, href;
 var iframes = document.querySelectorAll('iframe');
 var links = document.querySelectorAll('a');
 var imgs = document.querySelectorAll('img');
-
+console.log('Found ' + imgs.length + ' images ' + links.length + ' links ' + iframes.length +' iframes');
 var results = [];
 var found = false;
 
@@ -217,10 +229,13 @@ for (var ii = imgs.length; ii--;) {
   var el = imgs[ii],
     uri = el.getAttribute('src');
   if (uri) {
-    console.log('Found image link: ' + uri);
+    console.log('Found image ' + ii + ' link: ' + uri);
     var res = matchPattern(uri);
     if (res) {
       res.uri = uri;
+      if (res.type==='rtb') {
+        parseHref(uri);
+      }
       console.dir(res);
       results.push(res);
       found = true;
@@ -229,7 +244,7 @@ for (var ii = imgs.length; ii--;) {
 }
 
 
-for (var ii = links.length; ii--;) {
+for (ii = links.length; ii--;) {
   var el = links[ii],
     uri = el.getAttribute('href');
   if (uri) {
@@ -255,6 +270,10 @@ for (var ii = 0; ii < results.length; ii++) {
   if (info.type == 'ad') {
     msg.type = 'ad';
     filled = true;
+    msg.creative_uid = creative_uid;
+    msg.flight_uid = flight_uid;
+    msg.exchange = exchange;
+
     if (info.vendor == 'DataXu') {
       console.log('Found DataXu Ad');
       parseHref(info.uri);
@@ -293,7 +312,7 @@ if (filled) {
   console.log('Sending message:');
   console.dir(msg);
 
-  chrome.extension.sendMessage(msg, function() {});
+  chrome.extension.sendMessage(msg, function() {console.log('Received callback');});
 } else {
   console.log('no ads found');
 }
