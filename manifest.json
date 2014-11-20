@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "On Page Stuff Finder",
+    "description": "Notifies you when stuff is found on a page",
+    "version": "0.1",
+    "content_scripts": [
+        {
+            "matches":["http://*/*","https://*/*"],
+            "all_frames": true,
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "dx_icon_19.png",
+        "default_popup": "popup.html"
+    },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "notifications",
+        "http://*/*",
+        "https://*/*"
+    ]
+}
