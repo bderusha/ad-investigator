@@ -1,13 +1,25 @@
-// This function is called onload in the popup code
-function findElement(callback) {
-    // Inject the content script into the current page
-    chrome.tabs.executeScript(null, { file: 'content.js', allFrames: true });
-    // Perform the callback when a message is received from the content script
-    chrome.runtime.onMessage.addListener(function(message)  {
-      // Call the callback function
-      callback(message);
-    });
+// // This function is called onload in the popup code
+// function findElement(callback) {
+//     // Inject the content script into the current page
+//     chrome.tabs.executeScript(null, { file: 'content.js', allFrames: true });
+//     // Perform the callback when a message is received from the content script
+//     chrome.runtime.onMessage.addListener(function(message)  {
+//       // Call the callback function
+//       callback(message);
+//     });
+// }
+
+function getCreatives(callback){
+  callback(creatives);
 }
+
+var creatives = [];
+
+chrome.runtime.onMessage.addListener(function(message)  {
+  if(message.type == 'ad'){
+    creatives.push(message);
+  }
+});
 
 chrome.runtime.onMessage.addListener(function(message)  {
   if(message.type == 'link'){

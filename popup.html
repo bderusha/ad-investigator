@@ -3,24 +3,133 @@
     <head>
         <style>
             body {
-                min-width: 420px;
+                min-width: 520px;
                 overflow-x: hidden;
                 font-family: Arial, sans-serif;
                 font-size: 12px;
             }
-            input, textarea {
-                width: 420px;
+            .container {
+                margin: 3px;
+                border: 1px;
             }
-            input#save {
-                font-weight: bold; width: auto;
+
+            #template {
+                display: none;
             }
+
+            .label {
+                font-size: 16px;
+            }
+
+
         </style>
         <script src="popup.js"></script>
     </head>
     <body>
-        <h4 id='text'></h4>
-        <h4 id='url'></h4>
-        <div id="linker">
+        <!-- Note Secure Tags vs Insecure -->
+        <!-- <div class="container" id="ad0">
+            <div class="flight" id='flight0'>
+                <span class="label">Flight URL: </span>
+                <a href="https://advertisers.dataxu.com/flights/12345" target="_blank">
+                    https://advertisers.dataxu.com/flights/12345
+                </a>
+            </div>
+            <div id='click-trackers0'>
+                <span class="label">Click Trackers Used: </span>
+                <ul>
+                    <li>DataXu</li>
+                    <li>DoubleClick</li>
+                    <li>MediaPlex</li>
+                </ul>
+            </div>
+            <div id='impression-trackers0'>
+                <span class="label">Impression Trackers Used: </span>
+                <ul>
+                    <li>DataXu</li>
+                    <li>DoubleClick</li>
+                    <li>MediaPlex</li>
+                </ul>
+            </div>
+            <div id='activity-trackers0'>
+                <span class="label">Activity Trackers Used: </span>
+                <ul>
+                    <li>DataXu</li>
+                    <li>DoubleClick</li>
+                    <li>MediaPlex</li>
+                </ul>
+            </div>
+            <div id='cookie-matchers0'>
+                <span class="label">Cookie Matchers Used: </span>
+                <ul>
+                    <li>DataXu</li>
+                    <li>DoubleClick</li>
+                    <li>MediaPlex</li>
+                </ul>
+            </div>
+            <div id='vendors0'>
+                <span class="label">Vendors Used: </span>
+                <ul>
+                    <li>DataXu</li>
+                    <li>DoubleClick</li>
+                    <li>MediaPlex</li>
+                </ul>
+            </div>
+            <div id='macros0'>
+                <span class="label">The Following Macros Were NOT replaces correctly: </span>
+                <ul>
+                    <li>CACHEBUSTER</li>
+                    <li>timestamp</li>
+                </ul>
+            </div>
+            <div id='cdn-link0'>
+                <span class="label">CDN Creative Link: </span>
+                <a href="http://cdn.w55c.net/">CDN Creative</a>
+            </div>
+            <div id='landing-page0'>
+                <span class="label">Landing Page: </span>
+                <a href="http://www.landingpage.com">http://www.landingpage.com</a>
+            </div>
+        </div> -->
+        <div class="container" id="template">
+            <div class="flight">
+                <span class="label">Flight URL: </span>
+            </div>
+            <div class='click-trackers'>
+                <span class="label">Click Trackers Used: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='impression-trackers'>
+                <span class="label">Impression Trackers Used: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='activity-trackers'>
+                <span class="label">Activity Trackers Used: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='cookie-matchers'>
+                <span class="label">Cookie Matchers Used: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='vendors'>
+                <span class="label">Vendors Used: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='macros'>
+                <span class="label">The Following Macros Were NOT replaces correctly: </span>
+                <ul>
+                </ul>
+            </div>
+            <div class='cdn-link'>
+                <span class="label">CDN Creative Link: </span>
+            </div>
+            <div class='landing-page'>
+                <span class="label">Landing Page: </span>
+            </div>
         </div>
     </body>
 </html>

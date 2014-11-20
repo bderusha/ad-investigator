@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "On Page Stuff Finder",
-    "description": "Notifies you when stuff is found on a page",
+    "name": "DataXu Ad Agent",
+    "description": "Get deep details on your DataXu creative",
     "version": "0.1",
     "content_scripts": [
         {
