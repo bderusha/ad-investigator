@@ -60,10 +60,10 @@ function buildDOM(creatives) {
     }
     if (creatives[i].macros)
       addMacros(creatives[i].macros, root);
-    if (creatives[i].cdn_url)
-      addCdn(creatives[i].cdn_url, root);
-    if (creatives[i].landing_page_url)
-      addLandingPage(creatives[i].landing_page_url, root);
+    // if (creatives[i].cdn_url)
+    //   addCdn(creatives[i].cdn_url, root);
+    // if (creatives[i].landing_page_url)
+    //   addLandingPage(creatives[i].landing_page_url, root);
 
   }
 }
